@@ -1,8 +1,20 @@
 services:
+  # <service-name>:
+  #   image: <image-name: with docker.io/ if come from docker>
+  #   # expose: documents the port but does not map it to the host
+  #   # Other containers on the same network can still access it
+  #   expose: 
+  #     - 5432
+  #   # Map port to the host, check this:
+  #   # https://oneuptime.com/blog/post/2026-03-17-use-compose-port-mapping-podman/view
+  #   ports:
+  #     - <HOST-PORT>:<CONTAINER-PORT>
+  #   environment:
+  #     - <env-var-name>=<env-var-value>
+  #   command: <command to run>
+
   db:
     image: docker.io/postgres:18
-    # expose: documents the port but does not map it to the host
-    # Other containers on the same network can still access it
     expose: 
       - 5432
       - 5433

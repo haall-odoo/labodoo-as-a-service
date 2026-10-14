@@ -33,5 +33,7 @@ services:
       - HOST=db
       - USER=odoo
       - PASSWORD=odoo
-    command: odoo --http-interface=0.0.0.0 -d odoo -i base
-    
+    volumes:
+      - ./services/odoo:/etc/odoo
+      - /home/odoo/src/20.0:/mnt/extra-addons
+    command: odoo --http-interface=0.0.0.0 -d odoo -i crm,sales,hr,recruitment,project

@@ -44,38 +44,38 @@ sudo apt update && sudo apt install -y podman podman-compose
 
 Here is an overview of the microservices composing the **LaaS** ecosystem:
 
-| Icon | Service | Technology | Role & Description |
-| :---: | :--- | :--- | :--- |
-| 🌐 | **DNS & DHCP** | `DNSmasq` | Handles local `DHCPv4` IP allocation and lightweight internal `DNS` resolution for workshop clients. |
-| 🔀 | **Reverse Proxy** | `NGINX` | High-performance Web Server directing HTTP/HTTPS traffic, routing host headers, and handling SSL termination. |
-| 🧠 | **Orchestrator** | `HiveMind` | The central brain powering the primary Odoo server and dynamically managing student instance lifecycles. |
-| ✉️ | **Mail Transfer** | `Postfix` | Outbound `SMTP` server enabling simulated corporate emailing workflows and Odoo notifications. |
-| 📥 | **Mail Storage** | `Dovecot` | Secure `IMAP/POP3` inbox server managing user mailboxes across virtual companies. |
-| 🐘 | **DBMS** | `PostgreSQL` | Relational database engine providing fast, isolated data storage for all Odoo databases. |
+| Service | Technology | Role & Description |
+| :--- | :--- | :--- |
+| 🌐 **DNS & DHCP** | `DNSmasq` | Handles local `DHCPv4` IP allocation and lightweight internal `DNS` resolution for workshop clients. |
+| 🔀 **Reverse Proxy** | `NGINX` | High-performance Web Server directing HTTP/HTTPS traffic, routing host headers, and handling SSL termination. |
+| 🧠 **Orchestrator** | `HiveMind` | The central brain powering the primary Odoo server and dynamically managing student instance lifecycles. |
+| ✉️ **Mail Transfer** | `Postfix` | Outbound `SMTP` server enabling simulated corporate emailing workflows and Odoo notifications. |
+| 📥 **Mail Storage** | `Dovecot` | Secure `IMAP/POP3` inbox server managing user mailboxes across virtual companies. |
+| 🐘 **DBMS** | `PostgreSQL` | Relational database engine providing fast, isolated data storage for all Odoo databases. |
 
 ---
 
 ## 🚀 Quick Start Guide
 
-### 1. Clone the Repository
+#### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/labodoo-as-a-service.git
+git clone git@github.com/haall-odoo/labodoo-as-a-service
 cd labodoo-as-a-service
 ```
 
-### 2. Configure Environment Variables
+#### 2. Configure Environment Variables
 Copy the template configuration file and adapt the parameters for your network set up:
 ```bash
 cp .env.example .env
 ```
 
-### 3. Launch the Stack 🏁
+#### 3. Launch the Stack 🏁
 Start all microservices in detached mode:
 ```bash
 podman-compose up -d
 ```
 
-### 4. Check Microservice Status
+#### 4. Check Microservice Status
 Verify that all services are healthy and active:
 ```bash
 podman-compose ps

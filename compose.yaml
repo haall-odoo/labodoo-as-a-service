@@ -1,0 +1,25 @@
+services:
+  db:
+    image: docker.io/postgres:18
+    # expose: documents the port but does not map it to the host
+    # Other containers on the same network can still access it
+    expose: 
+      - 5432
+      - 5433
+    environment:
+      - POSTGRES_DB=odoo
+      - POSTGRES_USER=odoo
+      - POSTGRES_PASSWORD=odoo
+  odoo:
+    image: docker.io/odoo:20
+    depends_on:
+      - db
+    ports:
+      - 8069:8069
+      - 8169:8169
+    environment:
+      - HOST=db
+      - USER=odoo
+      - PASSWORD=odoo
+    command: odoo --http-interface=0.0.0.0 -d odoo -i base
+    
